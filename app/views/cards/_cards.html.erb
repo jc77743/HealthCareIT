@@ -3,15 +3,20 @@
     <div class="col-md-4">
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
+          <% if card.active %>
           <div class="panel-heading" role="tab" id="headingOne">
+            <% else %>
+            <div class="panel-heading grey" role="tab" id="headingOne">
+            <% end %>
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= card.id %>" aria-expanded="true" aria-controls="collapseOne"><h3 class="panel-title"><%= card.number %><span class="arrow pull-right"><i class="fa fa-chevron-circle-down"></i></span><span class="arrow pull-right"><i class="fa fa-chevron-circle-up hidden"></i></span></h3></a>
           </div>
           <ul class="list-group-collapse collapse" id="collapse<%= card.id %>" role="tabpanel" aria-labelledby="headingOne">
             <li class="list-group-item"><em>Valid Thru</em> <%= card.expirationDate.strftime("%b %d, %Y") %></li>
             <li class="list-group-item"><em>Date Received</em> <%= card.expirationDate.strftime("%b %d, %Y") %></li>
             <li class="list-group-item light-purple">
-              <i class="fa fa-times-circle fa-fw"></i>&nbsp;&nbsp; <%= best_in_place card, :inTransitTo, :nil => 'Give this card to someone?', :classes => 'name' %>
+              <i class="fa fa-gift fa-fw"></i>&nbsp;&nbsp; <%= best_in_place card, :people_id, :as => :select, :collection => People.all.map { |i| [i.id, i.name] }, :nil => 'Give this card to someone?' %>
             </li>
+
             <% if card.active %>
               <li class="list-group-item default"><i class="fa fa-plus-circle fa-fw"></i>&nbsp;&nbsp;
             <% else %>
@@ -42,5 +47,3 @@
   });
 
 </script>
-
-<em>In transit to</em>

@@ -5,8 +5,17 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.search(params[:search])
+    @cards = Card.search(params[:search]).order(sort_column + ' ' + sort_direction)
   end
+
+  private
+   def sort_column
+     params[:sort] || "number"
+   end
+   
+   def sort_direction
+     params[:direction] || "asc"
+   end
 
   # GET /cards/1
   # GET /cards/1.json
@@ -70,6 +79,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:number, :expirationDate, :dateReceived, :active, :inTransitTo, :transferActive)
+      params.require(:card).permit(:number, :expirationDate, :dateReceived, :active, :inTransitTo, :transferActive, :people_id)
     end
 end

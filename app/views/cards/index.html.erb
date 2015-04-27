@@ -2,12 +2,13 @@
   <div class="row">
     <div class="col-md-12">
       <h1>Cards I Own</h1>
-      <%= link_to 'New Card', new_card_path %>
-      <%= form_tag cards_path, :method => 'get', :id => "cards_search", :class => "form-inline" do %>
+    </div>
+    <div class="col-md-12">
+      <%= form_tag cards_path, :method => 'get', :id => "cards_search", :class => "" do %>
         <p>
           <form class="form-search">
               <div class="input-group">
-                  <%= text_field_tag  :search, params[:search], :class => "form-control" %>
+                  <%= text_field_tag  :search, params[:search], :class => "col-md-12 form-control" %>
                   <span class="input-group-btn">
                       <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
                   </span>
@@ -18,6 +19,18 @@
 
         </p>
 
+      </div>
+    </div>
+    <div class="row padded">
+      <div class="col-md-12">
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default"><%= sortable "number" %></button>
+            <button type="button" class="btn btn-default"><%= sortable "expirationDate","Exp Date" %></button>
+            <button type="button" class="btn btn-default"><%= sortable "dateReceived", "Receive Date" %></button>
+            <button type="button" class="btn btn-default"><%= sortable "active" %></button>
+          </div>
+        </div>
       </div>
     </div>
     <div id="cards"><%= render 'cards' %></div>

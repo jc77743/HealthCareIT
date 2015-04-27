@@ -101,3 +101,13 @@
  .arrow {
    font-size: 18px;
  }
+
+ .grey {
+   color: #fff;
+     background-color: grey !important;
+     border-color: grey !important;
+ }
+
+ .padded {
+   padding-bottom: 20px;
+ }

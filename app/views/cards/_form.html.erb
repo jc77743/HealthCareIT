@@ -28,12 +28,8 @@
     <%= f.check_box :active %>
   </div>
   <div class="field">
-    <%= f.label :inTransitTo %><br>
-    <%= f.text_field :inTransitTo %>
-  </div>
-  <div class="field">
-    <%= f.label :transferActive %><br>
-    <%= f.check_box :transferActive %>
+    <%= f.label :people %><br />
+    <%= f.select :people_id, options_for_select(People.all.map{|s|[s.name, s.id]}) %>
   </div>
   <div class="actions">
     <%= f.submit %>
