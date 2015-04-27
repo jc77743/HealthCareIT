@@ -66,14 +66,38 @@
  .default {
  	background-color: #5AA53A;
  	color: #fff;
+   border: 1px solid #5AA53A;
  }
 
  .red {
  	background-color: #BA414D;
  	color: #fff;
+   border: 1px solid #BA414D;
  }
 
  .light-purple {
  	background-color: #AD5998;
  	color: #fff;
+   border: 1px solid #AD5998;
+ }
+
+ .collapse.in {
+   display: initial;
+   margin-top: 0px;
+   padding-left: 0px;
+ }
+
+ .collapse {
+   display: none;
+   margin-top: 0px;
+   padding-left: 0px;
+ }
+
+ .panel-heading a {
+   text-decoration: none;
+   color: #fff;
+ }
+
+ .arrow {
+   font-size: 18px;
  }
