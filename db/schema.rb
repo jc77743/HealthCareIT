@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423002751) do
+ActiveRecord::Schema.define(version: 20150427025923) do
 
   create_table "cards", force: true do |t|
     t.integer  "number"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20150423002751) do
     t.boolean  "active"
     t.string   "inTransitTo"
     t.boolean  "transferActive"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "people_id"
+  end
+
+  create_table "people", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
