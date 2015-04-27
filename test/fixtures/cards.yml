@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  expirationDate: 2015-04-22
+  dateReceived: 2015-04-22
+  active: false
+  inTransitTo: MyString
+  transferActive: false
+
+two:
+  number: 1
+  expirationDate: 2015-04-22
+  dateReceived: 2015-04-22
+  active: false
+  inTransitTo: MyString
+  transferActive: false

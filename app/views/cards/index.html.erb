@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Cards I Own</h1>
+      <%= link_to 'New Card', new_card_path %>
+      <%= form_tag cards_path, :method => 'get', :id => "cards_search", :class => "form-inline" do %>
+        <p>
+          <form class="form-search">
+              <div class="input-group">
+                  <%= text_field_tag  :search, params[:search], :class => "form-control" %>
+                  <span class="input-group-btn">
+                      <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                  </span>
+              </div>
+          </form>
+         
+
+
+        </p>
+
+      </div>
+    </div>
+    <div id="cards"><%= render 'cards' %></div>
+  <% end %>
+    
+  
+</div>

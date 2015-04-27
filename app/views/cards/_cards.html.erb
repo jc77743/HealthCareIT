@@ -1,0 +1,34 @@
+<div class="row">
+  <% @cards.each do |card| %>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= card.number %></h3>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item"><em>Valid Thru</em> <%= card.expirationDate.strftime("%b %d, %Y") %></li>
+          <li class="list-group-item"><em>Date Received</em> <%= card.expirationDate.strftime("%b %d, %Y") %></li>
+          <li class="list-group-item light-purple">
+            <i class="fa fa-times-circle fa-fw"></i>&nbsp;&nbsp; <%= best_in_place card, :inTransitTo, :nil => 'Give this card to someone?', :classes => 'name' %>
+          </li>
+          <% if card.active %>
+            <li class="list-group-item default"><i class="fa fa-plus-circle fa-fw"></i>&nbsp;&nbsp;
+          <% else %>
+            <li class="list-group-item default red"><i class="fa fa-times-circle fa-fw"></i>&nbsp;&nbsp;
+          <% end %>
+              <%= best_in_place card, :active, as: :checkbox, collection: {false: "This card is disbaled. Activate it?", true: "This card is active. Disable it?"}, :classes => 'highlight_on_success' %>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $('.highlight_on_success').bind("ajax:success", function(){$(this).closest('li').toggleClass('red');});
+  $('.name').bind("ajax:success", function(){$(this).closest('i').append('<em>In transit to</em>');});
+
+</script>
+
+<em>In transit to</em>
