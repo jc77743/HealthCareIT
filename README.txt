@@ -6,3 +6,4 @@ This is a POC made for UPMC We pay
 - rake db:migrate
 - rake db:setup
 - rails server
+- rails runs on localhost:3000
