@@ -27,10 +27,6 @@
     <%= f.label :active %><br>
     <%= f.check_box :active %>
   </div>
-  <div class="field">
-    <%= f.label :people %><br />
-    <%= f.select :people_id, options_for_select(People.all.map{|s|[s.name, s.id]}) %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

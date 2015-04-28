@@ -50,6 +50,7 @@ class CardsController < ApplicationController
   # PATCH/PUT /cards/1
   # PATCH/PUT /cards/1.json
   def update
+    @card = Card.find(params[:id])
     respond_to do |format|
       if @card.update(card_params)
         format.html { redirect_to @card, notice: 'Card was successfully updated.' }

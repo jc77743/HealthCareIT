@@ -33,7 +33,7 @@
 </div>
 
 <script type="text/javascript">
-  $('.highlight_on_success').bind("ajax:success", function(){$(this).closest('li').toggleClass('red');});
+  $('.highlight_on_success').bind("ajax:success", function(){$(this).closest('li').toggleClass('red');$(this).closest('panel-heading').toggleClass('grey')});
   $('.name').bind("ajax:success", function(){$(this).closest('i').append('<em>In transit to</em>');});
   $(document).ready(function(){    
       $(".panel-title").on('click', function () {
