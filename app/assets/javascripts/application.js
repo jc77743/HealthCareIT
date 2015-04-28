@@ -29,4 +29,19 @@ $(document).ready(function() {
   /* Activating Best In Place */
   console.log("fndsljfd");
   jQuery(".best_in_place").best_in_place();
+
+  $("#expand").click(function() {
+  	console.log("fndjskfndj");
+  	$(".list-group-collapse").toggleClass("in");
+  	var text = $(this).text();
+  	$(this).text(
+  	       text == "Expand All" ? "Collapse All" : "Expand All");
+  });
+
+  if (window.matchMedia('(max-width: 767px)').matches) {
+      //...
+  } else {
+      $(".list-group-collapse").toggleClass("in");
+  }
+
 });

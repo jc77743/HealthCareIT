@@ -1,8 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
       <h1>Cards I Own</h1>
     </div>
+    <div class="col-md-3">
+      <div class="btn-group pull-right margins hidden-xs" role="group" aria-label="...">
+        <button type="button" id="expand" class="btn btn-default">Collapse All</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    
     <div class="col-md-12">
       <%= form_tag cards_path, :method => 'get', :id => "cards_search", :class => "" do %>
         <p>
@@ -23,14 +31,22 @@
     </div>
     <div class="row padded">
       <div class="col-md-12">
+
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
-          <div class="btn-group">
+          <div class="btn-group" role="group">
             <button type="button" class="btn btn-default"><%= sortable "number" %></button>
+          </div>
+          <div class="btn-group" role="group">
             <button type="button" class="btn btn-default"><%= sortable "expirationDate","Exp Date" %></button>
+          </div>
+          <div class="btn-group" role="group">
             <button type="button" class="btn btn-default"><%= sortable "dateReceived", "Receive Date" %></button>
+          </div>
+          <div class="btn-group" role="group">
             <button type="button" class="btn btn-default"><%= sortable "active" %></button>
           </div>
         </div>
+
       </div>
     </div>
     <div id="cards"><%= render 'cards' %></div>

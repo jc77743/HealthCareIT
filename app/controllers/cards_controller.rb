@@ -5,17 +5,10 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.search(params[:search]).order(sort_column + ' ' + sort_direction)
+    @cards = Card.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
-  private
-   def sort_column
-     params[:sort] || "number"
-   end
-   
-   def sort_direction
-     params[:direction] || "asc"
-   end
+
 
   # GET /cards/1
   # GET /cards/1.json
@@ -50,7 +43,6 @@ class CardsController < ApplicationController
   # PATCH/PUT /cards/1
   # PATCH/PUT /cards/1.json
   def update
-    @card = Card.find(params[:id])
     respond_to do |format|
       if @card.update(card_params)
         format.html { redirect_to @card, notice: 'Card was successfully updated.' }
@@ -82,4 +74,14 @@ class CardsController < ApplicationController
     def card_params
       params.require(:card).permit(:number, :expirationDate, :dateReceived, :active, :inTransitTo, :transferActive, :people_id)
     end
+
+     def sort_column
+       params[:sort] || "number"
+     end
+     
+     def sort_direction
+       params[:direction] || "asc"
+     end
 end
+
+

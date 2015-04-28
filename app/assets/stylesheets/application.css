@@ -111,3 +111,8 @@
  .padded {
    padding-bottom: 20px;
  }
+
+ .margins {
+   margin-top: 20px;
+   margin-bottom: 10px;
+ }
