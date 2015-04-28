@@ -1,1 +1,8 @@
-Please send me your public key to add to this repository so you can start updating.
+This is a POC made for UPMC We pay
+
+- download rails
+- bundle install
+- bundle update
+- rake db:migrate
+- rake db:setup
+- rails server
